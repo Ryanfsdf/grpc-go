@@ -66,7 +66,7 @@ func testGCMEncryptionDecryption(sender ALTSRecordCrypto, receiver ALTSRecordCry
 	// Decrypt.
 	if got, err := receiver.Decrypt(nil, ciphertext); err != nil || !bytes.Equal(got, test.plaintext) {
 		t.Errorf("key=%v\ncounter=%v\ntag=%v\nciphertext=%v\nDecrypt = %v, %v\nwant: %v",
-			test.key, test.counter, test.tag, test.ciphertext, got, err, test.plaintext)
+			test.key, test.counter, test.tag, ciphertext, got, err, test.plaintext)
 	}
 
 	// Encrypt.
